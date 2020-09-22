@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_ATLAS_PW":"P@$k2g11",
+        "MONGO_ATLAS_DB":"node-shop-db",
+        "JWT_KEY":"secret"
+    }
+}
