@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const productsController = require('../controllers/products');
+const ProductsController = require('../controllers/products');
 const checkAuth = require('../middleware/check-auth');
 
 const storage = multer.diskStorage({
@@ -29,19 +29,19 @@ const upload = multer({
 
 
 // Endpoint for retrieving all products from the database
-router.get('/', productsController.get_all_products);
+router.get('/', ProductsController.get_all_products);
 
 // Endpoint for creating a new product in the database
-router.post('/', checkAuth, upload.single('productImage'), productsController.create_new_product);
+router.post('/', checkAuth, upload.single('productImage'), ProductsController.create_new_product);
 
 // Endpoint for retrieving a specific product from the database
-router.get('/:id', checkAuth, productsController.get_one_product);
+router.get('/:id', checkAuth, ProductsController.get_one_product);
 
 // Endpoint for editing a product in the database
-router.patch('/:id', checkAuth, productsController.edit_product_details);
+router.patch('/:id', checkAuth, ProductsController.edit_product_details);
 
 // Endpoint for deleting a product from the database
-router.delete('/:id', checkAuth, productsController.delete_product);
+router.delete('/:id', checkAuth, ProductsController.delete_product);
 
 
 module.exports = router;
